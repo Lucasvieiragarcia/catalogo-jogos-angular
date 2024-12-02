@@ -9,6 +9,11 @@
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
 
+	// Configure required features:
+	"features": {
+		"ghcr.io/devcontainers/features/docker-outside-of-docker": {}
+	},
+	
 	// Configure tool-specific properties.
 	"customizations": {
 		// Configure properties specific to VS Code.
