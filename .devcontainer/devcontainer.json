@@ -30,7 +30,7 @@
 	},
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	"forwardPorts": [4200]
+	"forwardPorts": [4200, 3333, 27017]	// Note: it's still necessary to set port "Visibility" to "Public".
 
 	// Use 'postCreateCommand' to run commands after the container is created.
 	// "postCreateCommand": "yarn install",
