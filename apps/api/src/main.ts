@@ -7,6 +7,15 @@ import express from 'express';
 import * as path from 'path';
 import { mongodbUri } from './mongodb-uri';
 
+import { MongoClient } from 'mongodb';
+
+MongoClient.connect(mongodbUri).then((client: MongoClient) => {
+  app.locals.db = client.db('app-favoritos');
+  console.log(`Conectado ao MongoDB.`);
+}).catch(err => {
+  console.error(err);
+});
+
 const app = express();
 
 app.use('/assets', express.static(path.join(__dirname, 'assets')));
