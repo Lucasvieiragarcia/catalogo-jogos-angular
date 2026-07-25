@@ -51,6 +51,8 @@
         },
         "development": {
           "host": "0.0.0.0",
+          "poll": 2000,
+          "liveReload": true,
           "buildTarget": "front:build:development"
         }
       },
