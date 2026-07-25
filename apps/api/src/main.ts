@@ -9,6 +9,8 @@ import { mongodbUri } from './mongodb-uri';
 
 import { MongoClient } from 'mongodb';
 
+import cors from 'cors';
+
 MongoClient.connect(mongodbUri).then((client: MongoClient) => {
   app.locals.db = client.db('app-favoritos');
   console.log(`Conectado ao MongoDB.`);
@@ -17,6 +19,9 @@ MongoClient.connect(mongodbUri).then((client: MongoClient) => {
 });
 
 const app = express();
+
+// Usar CORS antes dos middlewares de roteamento:
+app.use(cors());
 
 app.use('/assets', express.static(path.join(__dirname, 'assets')));
 
