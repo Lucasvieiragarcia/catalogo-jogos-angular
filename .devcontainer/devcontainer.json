@@ -13,7 +13,7 @@
 	"features": {
 		"ghcr.io/devcontainers/features/docker-outside-of-docker": {}
 	},
-	
+
 	// Configure tool-specific properties.
 	"customizations": {
 		// Configure properties specific to VS Code.
@@ -30,7 +30,10 @@
 	},
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	"forwardPorts": [4200, 3333, 27017]	// Note: it's still necessary to set port "Visibility" to "Public".
+	"forwardPorts": [4200, 3333, 27017], // Note: it's still necessary to set port "Visibility" to "Public".
+
+	// Generate the MongoDB connection files automatically when the container starts.
+	"postCreateCommand": "npm run set-up-mongodb"
 
 	// Use 'postCreateCommand' to run commands after the container is created.
 	// "postCreateCommand": "yarn install",

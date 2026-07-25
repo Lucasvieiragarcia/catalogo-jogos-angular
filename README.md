@@ -14,6 +14,12 @@ comes with a LSP for Vim users.
 
 Run `npx nx serve front` to start the development server. Happy coding!
 
+## MongoDB setup
+
+Run `npm run set-up-mongodb` to generate the local MongoDB connection files.
+In the devcontainer, this runs automatically after the container is created and
+writes the URI to `.env.local` and `.vscode/mongodb-uri.txt`.
+
 ## Build for production
 
 Run `npx nx build front` to build the application. The build artifacts are stored in the output directory (e.g. `dist/` or `build/`), ready to be deployed.

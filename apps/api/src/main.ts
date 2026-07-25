@@ -5,6 +5,7 @@
 
 import express from 'express';
 import * as path from 'path';
+import { mongodbUri } from './mongodb-uri';
 
 const app = express();
 
@@ -17,5 +18,6 @@ app.get('/api', (req, res) => {
 const port = process.env.PORT || 3333;
 const server = app.listen(port, () => {
   console.log(`Listening at http://localhost:${port}/api`);
+  console.log(`MongoDB connection configured from ${mongodbUri}`);
 });
 server.on('error', console.error);
