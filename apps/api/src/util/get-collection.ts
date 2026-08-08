@@ -9,12 +9,10 @@ import { Collection, Db } from 'mongodb';
  * @param name Nome da coleção a ser acessada.
  * @returns Referência para a coleção MongoDB.
  */
-export function getCollection<T extends Object>(
-  appOrDb: (Application | Db),
+export function getCollection<T extends object>(
+  appOrDb: Application | Db,
   name: string,
 ): Collection<T> {
-  const db: Db = appOrDb instanceof Db
-  ? appOrDb
-  : appOrDb.locals.db;
+  const db: Db = appOrDb instanceof Db ? appOrDb : appOrDb.locals.db;
   return db.collection<T>(name);
 }
