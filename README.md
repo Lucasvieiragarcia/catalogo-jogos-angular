@@ -1,109 +1,80 @@
-# Checkpoint - Catálogo de Jogos
+Checkpoint - Catálogo de Jogos
 
-Aplicação Web desenvolvida como trabalho final da disciplina WEB15 - Framework Front End Angular, da Especialização em Desenvolvimento Web com Frameworks Modernos da UTFPR.
+Este projeto foi desenvolvido como trabalho final da disciplina de Angular da Especialização em Desenvolvimento Web com Frameworks Modernos da UTFPR.
 
-O sistema permite consultar jogos, abrir seus detalhes, autenticar um usuário e cadastrar novos títulos com persistência no MongoDB.
+A aplicação funciona como um catálogo de jogos. Nela é possível visualizar os jogos cadastrados, consultar os detalhes de cada título, fazer login e cadastrar novos jogos. Os dados são armazenados no MongoDB.
 
-## Integrante
+Integrante
 
-- Lucas Vieira Garcia - [@Lucasvieiragarcia](https://github.com/Lucasvieiragarcia)
+Lucas Vieira Garcia
 
-## Tecnologias
+GitHub: https://github.com/Lucasvieiragarcia
 
-- Angular 17.2
-- RxJS 7.8
-- Node.js 20
-- ExpressJS 4.18
-- MongoDB
-- Nx 18
-- Docker e Dev Containers
+Tecnologias utilizadas
 
-Todas as tecnologias utilizadas são gratuitas. As capas cadastradas inicialmente são carregadas por URLs públicas da Steam. Caso uma imagem esteja indisponível, a aplicação exibe uma capa alternativa.
+O projeto foi desenvolvido com Angular 17, Node.js, ExpressJS, MongoDB, RxJS e Nx. O Docker e o Dev Containers foram utilizados para preparar o ambiente de desenvolvimento.
 
-## Funcionalidades
+Funcionalidades
 
-- Listagem de jogos recuperados da API
-- Página de detalhes por rota dinâmica
-- Login e logout
-- Proteção da rota de cadastro
-- Formulário reativo com validações
-- Cadastro autenticado e persistência no MongoDB
-- Exibição de capas por URL
-- Layout responsivo
+A aplicação possui uma página com a listagem dos jogos e uma página de detalhes para cada título. Também conta com login, logout e uma tela de cadastro protegida, que só pode ser acessada por usuários autenticados.
 
-## Critérios da atividade
+O formulário de cadastro possui validações e os jogos adicionados são salvos no banco de dados. As capas são informadas por meio de uma URL.
 
-| Critério             | Implementação                                                           |
-| -------------------- | ----------------------------------------------------------------------- |
-| Pipe customizado     | `DuracaoPipe`, usado para formatar a duração dos jogos                  |
-| Diretiva customizada | `ImagemFallbackDirective`, usada quando uma capa não pode ser carregada |
-| Rotas                | Catálogo, login, cadastro protegido e detalhes por identificador        |
-| Entidades            | `Jogo`, `NovoJogo`, `Usuario` e `UsuarioLogado`                         |
-| Formulários          | Login e cadastro de jogo com Reactive Forms                             |
-| Persistência         | Coleções `jogos` e `usuarios` no MongoDB                                |
+Foi criado o DuracaoPipe para exibir a duração dos jogos em horas. A ImagemFallbackDirective apresenta uma capa alternativa quando a imagem cadastrada não pode ser carregada.
 
-## Pré-requisitos
+Como executar o projeto
 
-Forma recomendada:
+Para executar o projeto é necessário ter o Git, o Docker Desktop, o Visual Studio Code e a extensão Dev Containers instalados.
 
-- Git
-- Docker Desktop ou Docker Engine com Compose
-- Visual Studio Code
-- Extensão Dev Containers do VS Code
+Primeiro, clone o repositório e abra a pasta no Visual Studio Code.
 
-O Dev Container já contém Node.js 20 e utiliza uma imagem MongoDB. Não é necessário instalar essas tecnologias diretamente no sistema operacional.
-
-## Instalação e execução
-
-Clone o repositório:
-
-```bash
 git clone https://github.com/Lucasvieiragarcia/catalogo-jogos-angular.git
+
 cd catalogo-jogos-angular
+
 code .
-```
 
-No VS Code, execute o comando `Dev Containers: Reopen in Container`. Depois que o container estiver pronto, abra um terminal e execute:
+No Visual Studio Code, abra a paleta de comandos e selecione Dev Containers: Reopen in Container.
 
-```bash
+Depois que o container terminar de carregar, abra um terminal e execute os seguintes comandos:
+
 npm install
+
 npm run seed
+
 npm start
-```
 
-A aplicação ficará disponível nos endereços:
+A aplicação poderá ser acessada em:
 
-- Frontend: http://localhost:4200
-- API: http://localhost:3333/api
-- MongoDB: mongodb://127.0.0.1:27017
+Frontend: http://localhost:4200
 
-O comando `npm run seed` recria os dados de demonstração. Para preservar novos cadastros, não o execute novamente depois de iniciar o uso do sistema.
+API: http://localhost:3333/api
 
-## Usuários de demonstração
+MongoDB: mongodb://127.0.0.1:27017
 
-| Usuário | Senha   |
-| ------- | ------- |
-| `lucas` | `jogos` |
-| `admin` | `admin` |
+O comando npm run seed prepara o banco com os dados usados para demonstração. Esse comando recria os dados iniciais e não deve ser executado novamente caso seja necessário manter jogos cadastrados manualmente.
 
-As sessões são mantidas na memória da API. Depois de reiniciar o servidor, basta sair e entrar novamente.
+Dados para acesso
 
-## Comandos
+Usuário: lucas
 
-```bash
-npm start       # inicia o frontend e a API
-npm run seed    # recria os dados de demonstração
-npm run build   # compila frontend e API
-npm test        # executa os testes unitários
-npm run lint    # verifica a padronização do código
-```
+Senha: jogos
 
-## Estrutura principal
+Também pode ser utilizado o usuário admin com a senha admin.
 
-```text
-apps/
-├── api/        # API ExpressJS e acesso ao MongoDB
-└── front/      # aplicação Angular
-tools/
-└── seed.mjs    # carga inicial do banco de dados
-```
+Outros comandos
+
+O comando npm run build compila o frontend e a API.
+
+O comando npm test executa os testes do projeto.
+
+O comando npm run lint verifica a padronização do código.
+
+Organização do projeto
+
+O código do frontend está na pasta apps/front.
+
+O código da API está na pasta apps/api.
+
+O arquivo responsável pela criação dos dados iniciais está em tools/seed.mjs.
+
