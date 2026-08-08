@@ -3,6 +3,7 @@ import { ObjectId } from 'mongodb';
 export interface Jogo {
   _id?: ObjectId;
   titulo: string;
+  imagemUrl: string;
   genero: string;
   plataforma: string;
   anoLancamento: number;

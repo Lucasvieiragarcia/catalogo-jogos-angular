@@ -32,14 +32,24 @@ jogosRouter.get('/:id', async (req, res) => {
 });
 
 jogosRouter.post('/', autenticar, async (req, res) => {
-  const { titulo, genero, plataforma, anoLancamento, horasDuracao, nota, descricao } = req.body;
+  const {
+    titulo,
+    imagemUrl,
+    genero,
+    plataforma,
+    anoLancamento,
+    horasDuracao,
+    nota,
+    descricao,
+  } = req.body;
 
-  if (!titulo || !genero || !plataforma || !descricao) {
+  if (!titulo || !imagemUrl || !genero || !plataforma || !descricao) {
     return res.status(400).send({ mensagem: 'Preencha todos os campos obrigatórios.' });
   }
 
   const jogo: Jogo = {
     titulo: titulo.trim(),
+    imagemUrl: imagemUrl.trim(),
     genero: genero.trim(),
     plataforma: plataforma.trim(),
     anoLancamento: Number(anoLancamento),

@@ -15,6 +15,10 @@ export class AuthService {
 
   readonly usuario$ = this.usuarioSubject.asObservable();
 
+  get token() {
+    return localStorage.getItem('token');
+  }
+
   login(login: string, senha: string): Observable<RespostaLogin> {
     return this.http
       .post<RespostaLogin>(`${this.apiUrl}/login`, { login, senha })
@@ -35,7 +39,7 @@ export class AuthService {
   }
 
   estaAutenticado() {
-    return Boolean(localStorage.getItem('token'));
+    return Boolean(this.token);
   }
 
   private carregarUsuario(): UsuarioLogado | null {

@@ -1,6 +1,7 @@
 export interface Jogo {
   _id: string;
   titulo: string;
+  imagemUrl: string;
   genero: string;
   plataforma: string;
   anoLancamento: number;

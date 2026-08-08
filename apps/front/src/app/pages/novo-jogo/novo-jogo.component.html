@@ -1,0 +1,92 @@
+<a class="voltar" routerLink="/jogos">← Voltar ao catálogo</a>
+
+<section class="cabecalho-pagina">
+  <span>Novo título</span>
+  <h1>Cadastrar jogo</h1>
+  <p>Preencha os dados principais para incluir um jogo no catálogo.</p>
+</section>
+
+<form [formGroup]="formulario" (ngSubmit)="salvar()" novalidate>
+  <div class="campo campo-largo">
+    <label for="titulo">Título</label>
+    <input id="titulo" type="text" formControlName="titulo" />
+    @if (formulario.controls.titulo.touched && formulario.controls.titulo.invalid) {
+      <small>Informe um título com pelo menos 2 caracteres.</small>
+    }
+  </div>
+
+  <div class="campo campo-largo">
+    <label for="imagemUrl">URL da capa</label>
+    <input id="imagemUrl" type="url" formControlName="imagemUrl" placeholder="https://exemplo.com/capa.jpg" />
+    @if (formulario.controls.imagemUrl.touched && formulario.controls.imagemUrl.invalid) {
+      <small>Informe uma URL de imagem iniciada por http:// ou https://.</small>
+    }
+  </div>
+
+  <div class="campo">
+    <label for="genero">Gênero</label>
+    <input id="genero" type="text" formControlName="genero" placeholder="Ex.: RPG" />
+    @if (formulario.controls.genero.touched && formulario.controls.genero.invalid) {
+      <small>Informe o gênero.</small>
+    }
+  </div>
+
+  <div class="campo">
+    <label for="plataforma">Plataforma</label>
+    <select id="plataforma" formControlName="plataforma">
+      <option value="">Selecione</option>
+      <option value="PC">PC</option>
+      <option value="PlayStation 4">PlayStation 4</option>
+      <option value="PlayStation 5">PlayStation 5</option>
+      <option value="Xbox">Xbox</option>
+      <option value="Nintendo Switch">Nintendo Switch</option>
+      <option value="Multiplataforma">Multiplataforma</option>
+    </select>
+    @if (formulario.controls.plataforma.touched && formulario.controls.plataforma.invalid) {
+      <small>Selecione a plataforma.</small>
+    }
+  </div>
+
+  <div class="campo">
+    <label for="anoLancamento">Ano de lançamento</label>
+    <input id="anoLancamento" type="number" min="1970" [max]="anoAtual" formControlName="anoLancamento" />
+    @if (formulario.controls.anoLancamento.touched && formulario.controls.anoLancamento.invalid) {
+      <small>Informe um ano entre 1970 e {{ anoAtual }}.</small>
+    }
+  </div>
+
+  <div class="campo">
+    <label for="horasDuracao">Duração aproximada (horas)</label>
+    <input id="horasDuracao" type="number" min="0" formControlName="horasDuracao" />
+    @if (formulario.controls.horasDuracao.touched && formulario.controls.horasDuracao.invalid) {
+      <small>A duração não pode ser negativa.</small>
+    }
+  </div>
+
+  <div class="campo">
+    <label for="nota">Nota (0 a 10)</label>
+    <input id="nota" type="number" min="0" max="10" step="0.1" formControlName="nota" />
+    @if (formulario.controls.nota.touched && formulario.controls.nota.invalid) {
+      <small>Informe uma nota entre 0 e 10.</small>
+    }
+  </div>
+
+  <div class="campo campo-largo">
+    <label for="descricao">Descrição</label>
+    <textarea id="descricao" rows="5" formControlName="descricao"></textarea>
+    @if (formulario.controls.descricao.touched && formulario.controls.descricao.invalid) {
+      <small>Escreva uma descrição com pelo menos 10 caracteres.</small>
+    }
+  </div>
+
+  @if (mensagemErro) {
+    <p class="erro campo-largo" role="alert">{{ mensagemErro }}</p>
+  }
+
+  <div class="acoes campo-largo">
+    <a routerLink="/jogos">Cancelar</a>
+    <button type="submit" [disabled]="carregando">
+      {{ carregando ? 'Salvando...' : 'Salvar jogo' }}
+    </button>
+  </div>
+</form>

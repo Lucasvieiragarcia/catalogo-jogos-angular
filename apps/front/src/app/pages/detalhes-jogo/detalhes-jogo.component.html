@@ -2,7 +2,7 @@
 
 @if (jogo$ | async; as jogo) {
   <article class="detalhes">
-    <div class="capa" aria-hidden="true">🎮</div>
+    <img class="capa" [src]="jogo.imagemUrl" [alt]="'Capa de ' + jogo.titulo" />
 
     <div>
       <span class="genero">{{ jogo.genero }}</span>

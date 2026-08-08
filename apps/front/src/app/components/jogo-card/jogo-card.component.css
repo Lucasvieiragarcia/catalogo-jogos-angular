@@ -14,12 +14,11 @@
 }
 
 .capa {
-  align-items: center;
   background: linear-gradient(135deg, #172554, #2563eb);
-  display: flex;
-  font-size: 4rem;
+  display: block;
   height: 180px;
-  justify-content: center;
+  object-fit: cover;
+  width: 100%;
 }
 
 .conteudo {

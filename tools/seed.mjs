@@ -36,6 +36,7 @@ await db.collection('jogos').deleteMany({});
 await db.collection('jogos').insertMany([
   {
     titulo: 'God of War',
+    imagemUrl: 'https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1593500/header.jpg',
     genero: 'Ação e aventura',
     plataforma: 'PlayStation 4',
     anoLancamento: 2018,
@@ -46,6 +47,7 @@ await db.collection('jogos').insertMany([
   },
   {
     titulo: 'Red Dead Redemption 2',
+    imagemUrl: 'https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1174180/header.jpg',
     genero: 'Ação e mundo aberto',
     plataforma: 'PlayStation 4',
     anoLancamento: 2018,
@@ -56,6 +58,7 @@ await db.collection('jogos').insertMany([
   },
   {
     titulo: 'Hades',
+    imagemUrl: 'https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1145360/header.jpg',
     genero: 'Roguelike',
     plataforma: 'Multiplataforma',
     anoLancamento: 2020,
@@ -66,12 +69,24 @@ await db.collection('jogos').insertMany([
   },
   {
     titulo: 'The Witcher 3',
+    imagemUrl: 'https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/292030/header.jpg',
     genero: 'RPG',
     plataforma: 'Multiplataforma',
     anoLancamento: 2015,
     horasDuracao: 52,
     nota: 9.5,
     descricao: 'Geralt procura Ciri em um vasto mundo de fantasia repleto de escolhas e contratos de monstros.',
+    criadoPor: 1,
+  },
+  {
+    titulo: 'Elden Ring',
+    imagemUrl: 'https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1245620/header.jpg',
+    genero: 'RPG de ação',
+    plataforma: 'PlayStation 5',
+    anoLancamento: 2022,
+    horasDuracao: 60,
+    nota: 10,
+    descricao: 'Um aventureiro explora as Terras Intermédias em busca do poder do Anel Prístino.',
     criadoPor: 1,
   },
 ]);
