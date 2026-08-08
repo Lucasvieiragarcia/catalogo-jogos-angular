@@ -1,0 +1,33 @@
+<section class="login">
+  <div class="apresentacao">
+    <span class="etiqueta">Catálogo pessoal</span>
+    <h1>Seus jogos em um só lugar</h1>
+    <p>Consulte o catálogo e entre para adicionar novos títulos.</p>
+  </div>
+
+  <form [formGroup]="formulario" (ngSubmit)="entrar()">
+    <h2>Entrar</h2>
+
+    <label for="login">Usuário</label>
+    <input id="login" type="text" formControlName="login" autocomplete="username" />
+    @if (formulario.controls.login.touched && formulario.controls.login.invalid) {
+      <small>Informe o usuário.</small>
+    }
+
+    <label for="senha">Senha</label>
+    <input id="senha" type="password" formControlName="senha" autocomplete="current-password" />
+    @if (formulario.controls.senha.touched && formulario.controls.senha.invalid) {
+      <small>Informe a senha.</small>
+    }
+
+    @if (mensagemErro) {
+      <p class="erro" role="alert">{{ mensagemErro }}</p>
+    }
+
+    <button type="submit" [disabled]="carregando">
+      {{ carregando ? 'Entrando...' : 'Entrar' }}
+    </button>
+
+    <p class="acesso-teste">Acesso de teste: <strong>lucas</strong> / <strong>jogos</strong></p>
+  </form>
+</section>

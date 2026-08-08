@@ -1,2 +1,17 @@
-<app-nx-welcome></app-nx-welcome>
-<router-outlet></router-outlet>
+<header class="topo">
+  <a class="marca" routerLink="/">Checkpoint</a>
+
+  <nav aria-label="Navegação principal">
+    @if (auth.usuario$ | async; as usuario) {
+      <span>Olá, {{ usuario.nome }}</span>
+      <a routerLink="/jogos/novo">Cadastrar jogo</a>
+      <button type="button" (click)="sair()">Sair</button>
+    } @else {
+      <a routerLink="/login">Entrar</a>
+    }
+  </nav>
+</header>
+
+<main>
+  <router-outlet></router-outlet>
+</main>
