@@ -1,5 +1,10 @@
 <article class="card">
-  <img class="capa" [src]="jogo.imagemUrl" [alt]="'Capa de ' + jogo.titulo" />
+  <img
+    class="capa"
+    [src]="jogo.imagemUrl"
+    [alt]="'Capa de ' + jogo.titulo"
+    [appImagemFallback]="jogo.titulo"
+  />
 
   <div class="conteudo">
     <div class="cabecalho">

@@ -7,7 +7,8 @@
     "build": "nx run-many --target=build --projects=front,api",
     "set-up-mongodb": "node tools/setup-mongodb.mjs",
     "seed": "node tools/seed.mjs",
-    "test": "nx run-many --target=test --projects=front,api"
+    "test": "nx run-many --target=test --projects=front,api",
+    "lint": "nx run-many --target=lint --projects=front,api"
   },
   "private": true,
   "dependencies": {
