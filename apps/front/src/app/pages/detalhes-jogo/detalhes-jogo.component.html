@@ -1,0 +1,36 @@
+<a class="voltar" routerLink="/jogos">← Voltar ao catálogo</a>
+
+@if (jogo$ | async; as jogo) {
+  <article class="detalhes">
+    <div class="capa" aria-hidden="true">🎮</div>
+
+    <div>
+      <span class="genero">{{ jogo.genero }}</span>
+      <h1>{{ jogo.titulo }}</h1>
+      <p class="descricao">{{ jogo.descricao }}</p>
+
+      <dl>
+        <div>
+          <dt>Plataforma</dt>
+          <dd>{{ jogo.plataforma }}</dd>
+        </div>
+        <div>
+          <dt>Lançamento</dt>
+          <dd>{{ jogo.anoLancamento }}</dd>
+        </div>
+        <div>
+          <dt>Duração</dt>
+          <dd>{{ jogo.horasDuracao }} horas</dd>
+        </div>
+        <div>
+          <dt>Nota</dt>
+          <dd>{{ jogo.nota }} / 10</dd>
+        </div>
+      </dl>
+    </div>
+  </article>
+} @else if (mensagemErro) {
+  <p class="mensagem">{{ mensagemErro }}</p>
+} @else {
+  <p class="mensagem">Carregando detalhes...</p>
+}

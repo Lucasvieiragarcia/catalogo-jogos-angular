@@ -1,0 +1,14 @@
+<article class="card">
+  <div class="capa" aria-hidden="true">🎮</div>
+
+  <div class="conteudo">
+    <div class="cabecalho">
+      <span>{{ jogo.genero }}</span>
+      <strong>{{ jogo.nota }}</strong>
+    </div>
+
+    <h2>{{ jogo.titulo }}</h2>
+    <p>{{ jogo.plataforma }} · {{ jogo.anoLancamento }}</p>
+    <a [routerLink]="['/jogos', jogo._id]">Ver detalhes</a>
+  </div>
+</article>

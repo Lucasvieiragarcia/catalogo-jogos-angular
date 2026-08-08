@@ -1,0 +1,24 @@
+<section class="cabecalho-pagina">
+  <div>
+    <span>Biblioteca</span>
+    <h1>Catálogo de jogos</h1>
+    <p>Uma seleção de títulos para consultar, comparar e descobrir.</p>
+  </div>
+  <a routerLink="/jogos/novo">Adicionar jogo</a>
+</section>
+
+@if (jogos$ | async; as jogos) {
+  @if (mensagemErro) {
+    <p class="mensagem">{{ mensagemErro }}</p>
+  } @else if (jogos.length) {
+    <div class="grade">
+      @for (jogo of jogos; track jogo._id) {
+        <app-jogo-card [jogo]="jogo"></app-jogo-card>
+      }
+    </div>
+  } @else {
+    <p class="mensagem">Nenhum jogo foi cadastrado.</p>
+  }
+} @else {
+  <p class="mensagem">Carregando jogos...</p>
+}

@@ -2,6 +2,7 @@
   <a class="marca" routerLink="/">Checkpoint</a>
 
   <nav aria-label="Navegação principal">
+    <a routerLink="/jogos">Jogos</a>
     @if (auth.usuario$ | async; as usuario) {
       <span>Olá, {{ usuario.nome }}</span>
       <a routerLink="/jogos/novo">Cadastrar jogo</a>
